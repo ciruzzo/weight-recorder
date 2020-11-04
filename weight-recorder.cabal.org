@@ -1,0 +1,113 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 06d4c5ccf17bfa6e3ead23f24974b9beedde77c4798f687991e5daaba62e7f5b
+
+name:           weight-recorder
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/ciruzzo/weight-recorder#readme>
+homepage:       https://github.com/ciruzzo/weight-recorder#readme
+bug-reports:    https://github.com/ciruzzo/weight-recorder/issues
+author:         Yoshihiro Tsuchiya
+maintainer:     tsuchiya.yoshihiro@gmail.com
+copyright:      Copyright (c) Yoshihiro Tsuchiya
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+source-repository head
+  type: git
+  location: https://github.com/ciruzzo/weight-recorder
+
+data-files:
+    templates/start.mustache
+  , templates/main.mustache
+  , data/schema.sql
+
+library
+  exposed-modules:
+      Lib
+    , Entity.User
+    , Entity.WeightRecord
+    , Model.User
+    , Model.WeightRecord
+    , Web.Action.Register
+    , Web.Action.Login
+    , Web.Action.NewRecord
+    , Web.Core
+    , Web.View.Main
+    , Web.View.Start
+  other-modules:
+      Paths_weight_recorder
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+    , HDBC-sqlite3
+    , HDBC
+    , bcrypt
+    , bytestring
+    , http-types
+    , Spock
+    , mustache
+    , persistable-record
+    , relational-query-HDBC
+    , relational-query
+    , text
+    , time
+    , transformers
+    , wai 
+  default-language: Haskell2010
+  ghc-options: -Wall
+  
+
+executable weight-recorder-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_weight_recorder
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , weight-recorder
+    , Spock >= 0.11
+    , mtl
+    , text
+    , bcrypt
+    , bytestring
+    , filepath
+    , HDBC
+    , HDBC-sqlite3
+    , http-types
+    , mustache
+    , persistable-record
+    , relational-query-HDBC
+    , relational-query
+    , resource-pool
+    , time
+    , transformers
+    , wai
+  default-language: Haskell2010
+
+test-suite weight-recorder-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_weight_recorder
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , weight-recorder
+  default-language: Haskell2010
+
+
+
+

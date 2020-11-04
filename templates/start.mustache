@@ -1,0 +1,35 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Weight Recorder</title>
+</head>
+
+<body>
+
+{{#message}}
+<div style="background-color: red">{{message}}</div>
+{{/message}}
+
+<h2>User registration</h2>
+
+<form method="POST" action="/register">
+  <ul>
+  <li> account name <input type="text" name="name" /></li>
+  <li> password <input type="text" name="password" /><li>
+  </ul>
+  <input type="submit" value="Register" />
+</form>
+
+<h2>Login</h2>
+
+<form method="POST" action="/login">
+  <ul>
+  <li> account name <input type="text" name="name" /></li>
+  <li> password <input type="text" name="password" /><li>
+  </ul>
+  <input type="submit" value="Login" />
+</form>
+
+
+</body>
+</html>
